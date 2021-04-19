@@ -6,26 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/all.min.css">
     <title>切水果</title>
 </head>
 
 <body>
     <!-- fullPage 起始頁面 -->
-    <input type="button" value="START" id="btn">
     <div id="fullPage">
-        <label for="btn"></label>
+        <div id="startBtn">
+            <h1>Fruit Ninja</h1>
+            <input type="button" value="START" id="btn">
+            <label for="btn"><i class="fas fa-play"></i></label>
+        </div>
+        
         <!-- 遊戲畫面 -->
         <div id="container">
             <div id="game">
                 <div id="header">
                     <div class="score">
-                        <p>Score:</p>
+                        <p><i class="fas fa-coins"></i>Score:</p>
                     </div>
                     <div class="countdown">
-                        <p>Time Left:</p>
+                        <p><i class="fas fa-hourglass-half"></i>Time Left:</p>
                     </div>
                 </div>
-                <div id="main"></div>
+                <div id="main">a</div>
                 <div id="footer">
                     <div class="pause">
                         <label for="btn"><i class="fas fa-pause"></i></label>
