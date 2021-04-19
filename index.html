@@ -10,8 +10,29 @@
 </head>
 
 <body>
+    <!-- fullPage 起始頁面 -->
+    <input type="button" value="START" id="btn">
     <div id="fullPage">
-
+        <label for="btn"></label>
+        <!-- 遊戲畫面 -->
+        <div id="container">
+            <div id="game">
+                <div id="header">
+                    <div class="score">
+                        <p>Score:</p>
+                    </div>
+                    <div class="countdown">
+                        <p>Time Left:</p>
+                    </div>
+                </div>
+                <div id="main"></div>
+                <div id="footer">
+                    <div class="pause">
+                        <label for="btn"><i class="fas fa-pause"></i></label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="./jquery/jquery-3.6.0.min.js"></script>
     <script src="./js/all.js"></script>
