@@ -13,25 +13,39 @@
 <body>
     <!-- fullPage 起始頁面 -->
     <div id="fullPage">
-        <div id="startBtn">
+        <div id="startPage">
             <h1>Fruit Ninja</h1>
-            <input type="button" value="START" id="btn">
+            <input type="button" value="START" id="startBtn">
             <label for="btn"><i class="fas fa-play"></i></label>
         </div>
-        
+
         <!-- 遊戲畫面 -->
         <div id="container">
             <div id="game">
+                <!-- header ----------------------------------------------->
                 <div id="header">
+                    <!-- 分數 -->
                     <div class="score">
-                        <p><i class="fas fa-coins"></i>Score:</p>
+                        <p style="font-size: 20px;"><i class="fas fa-coins"></i>&emsp;Score</p>
+                        <p><span class="text-score text">0</span></p>
+
                     </div>
+                    <!-- 倒數 -->
                     <div class="countdown">
-                        <p><i class="fas fa-hourglass-half"></i>Time Left:</p>
+                        <p style="font-size: 20px;"><i class="fas fa-hourglass-half"></i>&emsp;Time Left</p>
+                        <p><span class="text-countdown text">10</span></p>
                     </div>
                 </div>
-                <div id="main">a</div>
+
+                <!-- main -------------------------------------------------->
+                <div id="main">
+                    <!-- 切水果的區域 -->
+                    <div class="fruitRegion"></div>
+                </div>
+
+                <!-- footer ------------------------------------------------>
                 <div id="footer">
+                    <!-- 暫停或開始鍵 -->
                     <div class="pause">
                         <label for="btn"><i class="fas fa-pause"></i></label>
                     </div>
@@ -39,6 +53,7 @@
             </div>
         </div>
     </div>
+
     <script src="./jquery/jquery-3.6.0.min.js"></script>
     <script src="./js/all.js"></script>
 </body>
