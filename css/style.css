@@ -151,7 +151,7 @@ html {
 #container {
   width: 100%;
   height: 100%;
-  background: paleturquoise;
+  background: rgb(28, 29, 29);
 }
 
 /* game------------------------------- */
@@ -190,14 +190,20 @@ html {
   width: 100%;
   height: 80%;
   background: palegoldenrod;
+  overflow: hidden;
 }
 .fruitRegion {
   width: 90%;
   height: 100%;
   margin: auto;
   background: rgb(138, 225, 228);
+  top: -150px;
+  transition: transform 1s 'linear';
 }
-#melon {
+.move{
+  transform: translateY(120vh);
+}
+/* #melon {
   position: relative;
 }
 #coconut {
@@ -214,7 +220,7 @@ html {
 }
 #lemon {
   position: relative;
-}
+} */
 /* footer----------------------------- */
 #footer {
   width: 100%;

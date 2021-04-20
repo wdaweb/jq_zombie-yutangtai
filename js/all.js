@@ -27,6 +27,9 @@ let startY = $('.fruitRegion').offset().top
 let endX = startX + regionWidth
 let endY = $('#footer').offset().top
 
+
+
+
 console.log('寬:' + regionWidth + ',' + '高:' + regionHeight)
 console.log('左上:' + startX + ',' + startY)
 console.log('右上:' + endX + ',' + startY)
@@ -43,8 +46,8 @@ $('#startBtn').click(function () {
 
     let timer = setInterval(function () {
       countdown--
+      randomData()
       fruitFall()
-      randFruit()
       $('.text-countdown').text(countdown)
       if (countdown === 0) {
         alert('時間到')
@@ -62,30 +65,48 @@ $('.fruitRegion').mousemove(function (e) {
   console.log('滑鼠位置:' + xPos + ',' + yPos)
 })
 
+//隨機數字
+function randomNum(min, max){
+  return Math.floor(Math.random() * (max - min)) + min
+}
 // 隨機水果
-let fruitNum
-const randFruit = () => {
-  let melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 105px; width: auto;" id="melon">`
-  let coconut = `<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;" id="coconut">`
-  let apple = `<img src="./images/apple_all2.png" alt="蘋果" style="height: 80px; width: auto;" id="apple">`
-  let banana = `<img src="./images/banana_all.png" alt="香蕉" style="height: 100px; width: auto;" id="banana">`
-  let orange = `<img src="./images/orange_all.png" alt="柳丁" style="height: 60px; width: auto;" id="orange">`
-  let lemon = `<img src="./images/lemon_all.png" alt="檸檬" style="height: 50px; width: auto;" id="lemon">`
-  let fruits = [melon, coconut, apple, banana, orange, lemon]
-
-  fruitNum = Math.floor(Math.random() * 6)
-  console.log(fruitNum)
-  $('.fruitRegion').append(`<span class="fruit">${fruits[fruitNum]}</span>`)
+const melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 105px; width: auto;">`
+const coconut = `<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;">`
+const apple = `<img src="./images/apple_all2.png" alt="蘋果" style="height: 80px; width: auto;">`
+const banana = `<img src="./images/banana_all.png" alt="香蕉" style="height: 100px; width: auto;">`
+const orange = `<img src="./images/orange_all.png" alt="柳丁" style="height: 60px; width: auto;">`
+const lemon = `<img src="./images/lemon_all.png" alt="檸檬" style="height: 50px; width: auto;">`
+const fruits = [melon, coconut, apple, banana, orange, lemon]
+let fruitIndex  //隨機水果索引值
+let fruit //隨機水果
+let fruitNum //水果數量
+let velocity  //隨機速度
+let posX //隨機 x 座標
+function randomData(){  
+  fruitNum = randomNum(2, 5)
+  for(let i=1; i<=fruitNum; i++){
+    fruitIndex = randomNum(0, 6)
+    fruit = fruits[fruitIndex]
+    velocity = randomNum(850, 10000)
+    posX  = randomNum(startX, endX)
+    postY = randomNum(startY, endY)
+    
+    $('.fruitRegion').append(`<span class="fruit">${fruits[fruitIndex]}</span>`)
+  }
 }
 
+
 //水果掉下來
-function fruitFall() {
-  if ($('.fruitRegion span').length > 0) {
-    $('.fruit').animate(
-      {
-        height: '+=100px'
-      },
-      1000
-    )
+function fruitFall(){
+  console.log(startX + posX + 'px')
+  console.log(startY + postY + 'px')
+  if($('.fruitRegion span').length > 0){
+    $('.fruit').animate({
+      // width: '+=100px',
+      translateX: `+=${startX + posX}`,
+      translateY: `+=${startY + postY}`
+    },1000)
+  }else{
+    $('.fruit').css('display','none')
   }
 }
