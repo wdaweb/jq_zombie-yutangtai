@@ -197,6 +197,24 @@ html {
   margin: auto;
   background: rgb(138, 225, 228);
 }
+#melon {
+  position: relative;
+}
+#coconut {
+  position: relative;
+}
+#apple {
+  position: relative;
+}
+#banana {
+  position: relative;
+}
+#orange {
+  position: relative;
+}
+#lemon {
+  position: relative;
+}
 /* footer----------------------------- */
 #footer {
   width: 100%;
