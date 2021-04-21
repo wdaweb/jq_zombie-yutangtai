@@ -197,33 +197,22 @@ html {
   height: 100%;
   margin: auto;
   background: rgb(138, 225, 228);
-  top: -150px;
+
   transition: transform 1s 'linear';
-}
-.move{
-  transform: translateY(120vh);
-}
-/* #melon {
+
   position: relative;
 }
-#coconut {
-  position: relative;
+.fruit {
+  position: absolute;
+  margin-top: -50px;
 }
-#apple {
-  position: relative;
+.move {
+  margin-top: 0;
 }
-#banana {
-  position: relative;
-}
-#orange {
-  position: relative;
-}
-#lemon {
-  position: relative;
-} */
 /* footer----------------------------- */
 #footer {
   width: 100%;
   height: 10%;
   background: pink;
+  background-image: url(/images/lemon_all.png);
 }
