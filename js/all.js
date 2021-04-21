@@ -18,14 +18,15 @@
 1.Sweetalert 顯示分數(和最高分數)，按下確定後回到開始畫面
 */
 
-const melon = `background-image:url("./images/watermelon_all.png")`
-const coconut = `background-image:url("/images/coconut_all.png")`
-const apple = `background-image:url("/images/apple_all2.png")`
-const banana = `background-image:url("/images/banana_all.png")`
-const orange = `background-image:url("/images/orange_all.png")`
-const lemon = `background-image:url("/images/lemon_all.png")`
+const melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 105px; width: auto;" id="melon">`
+const coconut =`<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;" id="coconut">`
+const apple = `<img src="./images/apple_all2.png" alt="蘋果" style="height: 80px; width: auto;" id="apple">`
+const banana = `<img src="./images/banana_all.png" alt="香蕉" style="height: 100px; width: auto;" id="banana">`
+const orange =  `<img src="./images/orange_all.png" alt="柳丁" style="height: 60px; width: auto;" id="orange">`
+const lemon = `<img src="./images/lemon_all.png" alt="檸檬" style="height: 50px; width: auto;" id="lemon">`
 
 const fruits = [melon, coconut, apple, banana, orange, lemon]
+
 
 //掉水果(X 軸隨機，Y 軸改變)
 // 水果掉落的範圍
@@ -54,7 +55,7 @@ $('#startBtn').click(function () {
       countdown--
       randomData()
       addFruit()
-      fruitFall()
+      // fruitFall()
       $('.text-countdown').text(countdown)
       if (countdown === 0) {
         alert('時間到')
@@ -96,36 +97,14 @@ function randomData() {
 function addFruit() {
   randomData()
   fruit = fruits[fruitIndex]
-  $('.fruitRegion').append(`<div class="fruitBox"></div>`)
-  
-  $('.fruitBox').eq($('.fruitBox').length -1).css({ left: `${posX}px` })
+  $('.fruitRegion').append(`<span class="fruit">${fruits[fruitIndex]}</span>`)
+  console.log($('.fruit img').length)
+  $('.fruitRegion span').eq($('.fruitRegion span').length-1).css({ left: `${posX}px`})
 
-  $('.fruit').addClass('move')
+  // $('.fruit').addClass('move')
 }
 
 //水果掉下來
 function fruitFall() {
-  // console.log(posX + 'px')
-  // console.log(postY + 'px')
-  if ($('.fruitRegion span').length > 0) {
-    posX = randomNum(ltX, rtX)
-    console.log('x 座標:' + posX)
-    console.log('span 數量:' + $('.fruitRegion span').length)
-    for (let i = 0; i < $('.fruitRegion span').length; i++) {
-      console.log('i 迴圈:' + i)
-      $('.fruit')
-        .eq(i)
-        .css({ left: `${posX}px` })
-    }
-    // $('.fruit').animate(
-    //   {
-    //     // width: '+=100px',
-    //     left: `${startX + posX}px`,
-    //     top: `${startY + postY}px`
-    //   },
-    //   1000
-    // )
-  } else {
-    $('.fruit').css('display', 'none')
+
   }
-}

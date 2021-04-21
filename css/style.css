@@ -202,10 +202,7 @@ html {
 
   position: relative;
 }
-.fruitBox{
-  width: 100px;
-  height: 100px;
-  background: url('/images/apple_all2.png');
+.fruitBox{  
   position: absolute;
   margin-top: -50px;
 }
