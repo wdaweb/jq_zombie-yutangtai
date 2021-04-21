@@ -79,9 +79,10 @@ function randomNum(min, max) {
 // 隨機數據
 let fruitIndex //隨機水果索引值
 let fruit //隨機水果
-let fruitNum = 0 //水果數量
-let velocity = 0 //隨機速度
-let posX = 0 //隨機 x 座標
+let fruitNum //水果數量
+let velocity //隨機速度
+let posX //隨機 x 座標
+
 
 function randomData() {
   fruitNum = randomNum(1, 5)
@@ -96,7 +97,9 @@ function addFruit() {
   randomData()
   fruit = fruits[fruitIndex]
   $('.fruitRegion').append(`<div class="fruitBox"></div>`)
-  $('.fruitBox').animate({ left: '+=100px' })
+  
+  $('.fruitBox').eq($('.fruitBox').length -1).css({ left: `${posX}px` })
+
   $('.fruit').addClass('move')
 }
 
