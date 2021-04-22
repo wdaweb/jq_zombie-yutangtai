@@ -198,15 +198,21 @@ html {
   margin: auto;
   background: rgb(138, 225, 228);
 
-  transition: transform 1s 'linear';
-
   position: relative;
 }
 .fruit {
   position: absolute;
   margin-top: -105px;
+  animation: move 5s linear;
 }
-
+@keyframes move {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* footer----------------------------- */
 #footer {
   width: 100%;
