@@ -53,7 +53,7 @@ $('#startBtn').click(function () {
       countdown--
       randomData()
       addFruit()
-      // fruitFall()
+
       $('.text-countdown').text(countdown)
       if (countdown === 0) {
         alert('時間到')
@@ -100,7 +100,7 @@ function addFruit() {
     $('.fruitRegion span')
       .eq($('.fruitRegion span').length - 1)
       .css({ left: `${posX}px` })
-    // $('.fruit').addClass('move')
+    fruitFall()
     if (countdown === 0) {
       clearInterval(fruitFallFrequency)
     }
@@ -108,4 +108,9 @@ function addFruit() {
 }
 
 //水果掉下來
-function fruitFall() {}
+function fruitFall() {
+  randomData()
+  $('.fruitRegion span')
+    .eq($('.fruitRegion span').length - 1)
+    .animate({ top: `${regionHeight + 105}px` })
+}
