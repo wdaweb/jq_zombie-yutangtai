@@ -202,13 +202,13 @@ html {
 
   position: relative;
 }
-.fruitBox{  
+.fruitBox {
   position: absolute;
   margin-top: -50px;
 }
 .fruit {
   position: absolute;
-  margin-top: -50px;
+  margin-top: -25px;
 }
 .move {
   margin-top: 0;
