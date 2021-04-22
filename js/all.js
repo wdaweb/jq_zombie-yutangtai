@@ -60,7 +60,7 @@ $('#startBtn').click(function () {
         clearInterval(timer)
       }
     }, 1000)
-  }, 500)
+  }, 300)
 })
 
 // 滑鼠在該區域裡的相對位置
@@ -83,11 +83,11 @@ let velocity //隨機速度
 let posX //隨機 x 座標
 
 function randomData() {
-  fruitNum = randomNum(1, 5)
+  fruitNum = randomNum(1, 3)
   fruitIndex = randomNum(0, 6)
   posX = randomNum(ltX + 105, rtX) //加上最大顆的水果寬度，不然會超出邊界
   posY = randomNum(lbY, ltY)
-  velocity = randomNum(105, regionHeight + 105)
+  velocity = randomNum(2000, 5000)
 }
 
 //增加水果
@@ -100,7 +100,7 @@ function addFruit() {
     $('.fruitRegion span')
       .eq($('.fruitRegion span').length - 1)
       .css({ left: `${posX}px` })
-    fruitFall()
+    fruitFall(fruitIndex)
     if (countdown === 0) {
       clearInterval(fruitFallFrequency)
     }
@@ -108,9 +108,8 @@ function addFruit() {
 }
 
 //水果掉下來
-function fruitFall() {
-  randomData()
+function fruitFall(fruitIndex) {
   $('.fruitRegion span')
     .eq($('.fruitRegion span').length - 1)
-    .animate({ top: `${regionHeight + 110}px` }, { duration: 3000 })
+    .animate({ top: `${regionHeight + 110}px` }, (fruitIndex + 1) * 1000, 'linear')
 }
