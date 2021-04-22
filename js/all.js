@@ -85,9 +85,9 @@ let posX //隨機 x 座標
 function randomData() {
   fruitNum = randomNum(1, 5)
   fruitIndex = randomNum(0, 6)
-  velocity = randomNum(850, 10000)
   posX = randomNum(ltX + 105, rtX) //加上最大顆的水果寬度，不然會超出邊界
-  postY = randomNum(lbY, ltY)
+  posY = randomNum(lbY, ltY)
+  velocity = randomNum(105, regionHeight + 105)
 }
 
 //增加水果
@@ -112,5 +112,5 @@ function fruitFall() {
   randomData()
   $('.fruitRegion span')
     .eq($('.fruitRegion span').length - 1)
-    .animate({ top: `${regionHeight + 105}px` })
+    .animate({ top: `${regionHeight + 110}px` }, { duration: 3000 })
 }
