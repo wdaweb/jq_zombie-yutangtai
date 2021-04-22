@@ -101,6 +101,9 @@ function addFruit() {
       .eq($('.fruitRegion span').length - 1)
       .css({ left: `${posX}px` })
     fruitFall(fruitIndex)
+
+    fruitPosition()
+
     if (countdown === 0) {
       clearInterval(fruitFallFrequency)
     }
@@ -112,4 +115,32 @@ function fruitFall(fruitIndex) {
   $('.fruitRegion span')
     .eq($('.fruitRegion span').length - 1)
     .animate({ top: `${regionHeight + 110}px` }, (fruitIndex + 1) * 1000, 'linear')
+}
+
+// 抓水果的座標
+let melonPos
+let coconutPos
+let applePos
+let bananaPos
+let orangePos
+let lemonPos
+function fruitPosition() {
+  melonPos = $('#melon').offset()
+  console.log(melonPos)
+
+  coconutPos = $('#coconut').offset()
+  console.log('椰子:' + coconutPos)
+
+  coconutPos = $('#applePos').offset()
+  console.log('蘋果:' + applePos)
+
+  coconutPos = $('#bananaPos').offset()
+  console.log('香蕉:' + bananaPos)
+
+  coconutPos = $('#orangePos').offset()
+  console.log('橘子:' + orangePos)
+
+  coconutPos = $('#lemonPos').offset()
+  console.log('檸檬:' + lemonPos)
+  return melonPos, coconutPos, applePos, bananaPos, orangePos, lemonPos
 }
