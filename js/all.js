@@ -19,14 +19,13 @@
 */
 
 const melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 105px; width: auto;" id="melon">`
-const coconut =`<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;" id="coconut">`
+const coconut = `<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;" id="coconut">`
 const apple = `<img src="./images/apple_all2.png" alt="蘋果" style="height: 80px; width: auto;" id="apple">`
 const banana = `<img src="./images/banana_all.png" alt="香蕉" style="height: 100px; width: auto;" id="banana">`
-const orange =  `<img src="./images/orange_all.png" alt="柳丁" style="height: 60px; width: auto;" id="orange">`
+const orange = `<img src="./images/orange_all.png" alt="柳丁" style="height: 60px; width: auto;" id="orange">`
 const lemon = `<img src="./images/lemon_all.png" alt="檸檬" style="height: 50px; width: auto;" id="lemon">`
 
 const fruits = [melon, coconut, apple, banana, orange, lemon]
-
 
 //掉水果(X 軸隨機，Y 軸改變)
 // 水果掉落的範圍
@@ -36,6 +35,7 @@ let ltX = $('.fruitRegion').offset().left
 let ltY = $('.fruitRegion').offset().top
 let rtX = ltX + regionWidth
 let lbY = $('#footer').offset().top
+let countdown = 10 //暫定
 
 console.log('寬:' + regionWidth + ',' + '高:' + regionHeight)
 console.log('左上:' + ltX + ',' + ltY)
@@ -49,8 +49,6 @@ $('#startBtn').click(function () {
 
   //進入畫面 0.5 秒後開始倒數計時
   setTimeout(function () {
-    let countdown = 10 //暫定
-
     let timer = setInterval(function () {
       countdown--
       randomData()
@@ -84,27 +82,30 @@ let fruitNum //水果數量
 let velocity //隨機速度
 let posX //隨機 x 座標
 
-
 function randomData() {
   fruitNum = randomNum(1, 5)
   fruitIndex = randomNum(0, 6)
   velocity = randomNum(850, 10000)
-  posX = randomNum(ltX, rtX)
+  posX = randomNum(ltX + 105, rtX) //加上最大顆的水果寬度，不然會超出邊界
   postY = randomNum(lbY, ltY)
 }
 
 //增加水果
 function addFruit() {
-  randomData()
-  fruit = fruits[fruitIndex]
-  $('.fruitRegion').append(`<span class="fruit">${fruits[fruitIndex]}</span>`)
-  console.log($('.fruit img').length)
-  $('.fruitRegion span').eq($('.fruitRegion span').length-1).css({ left: `${posX}px`})
+  let fruitFallFrequency = setInterval(function () {
+    randomData()
+    fruit = fruits[fruitIndex]
+    $('.fruitRegion').append(`<span class="fruit">${fruits[fruitIndex]}</span>`)
 
-  // $('.fruit').addClass('move')
+    $('.fruitRegion span')
+      .eq($('.fruitRegion span').length - 1)
+      .css({ left: `${posX}px` })
+    // $('.fruit').addClass('move')
+    if (countdown === 0) {
+      clearInterval(fruitFallFrequency)
+    }
+  }, 500)
 }
 
 //水果掉下來
-function fruitFall() {
-
-  }
+function fruitFall() {}
