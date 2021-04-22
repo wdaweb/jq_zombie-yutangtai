@@ -202,17 +202,11 @@ html {
 
   position: relative;
 }
-.fruitBox {
-  position: absolute;
-  margin-top: -50px;
-}
 .fruit {
   position: absolute;
-  margin-top: -25px;
+  margin-top: -105px;
 }
-.move {
-  margin-top: 0;
-}
+
 /* footer----------------------------- */
 #footer {
   width: 100%;
