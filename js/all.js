@@ -35,7 +35,7 @@ let ltX = $('.fruitRegion').offset().left
 let ltY = $('.fruitRegion').offset().top
 let rtX = ltX + regionWidth
 let lbY = $('#footer').offset().top
-let countdown = 10 //暫定
+let countdown = 60 //暫定
 
 console.log('寬:' + regionWidth + ',' + '高:' + regionHeight)
 console.log('左上:' + ltX + ',' + ltY)
@@ -91,11 +91,13 @@ function randomData() {
 }
 
 //增加水果
+let index = 0
 function addFruit() {
   let fruitFallFrequency = setInterval(function () {
     randomData()
+    index++
     fruit = fruits[fruitIndex]
-    $('.fruitRegion').append(`<span class="fruit">${fruits[fruitIndex]}</span>`)
+    $('.fruitRegion').append(`<span class="fruit" id="${index}">${fruits[fruitIndex]}</span>`)
 
     $('.fruitRegion span')
       .eq($('.fruitRegion span').length - 1)
@@ -104,7 +106,7 @@ function addFruit() {
     if (countdown === 0) {
       clearInterval(fruitFallFrequency)
     }
-  }, 500)
+  }, 5000)
 }
 
 //水果掉下來
@@ -114,16 +116,39 @@ function fruitFall(fruitIndex) {
     .animate({ top: `${regionHeight + 110}px` }, (fruitIndex + 1) * 1000, 'linear')
 }
 
-// 滑鼠碰到水果水果就消失
-
-$('.fruit').mousemove(function(){
-  console.log('hi')
-  $(this).removeClass(this)
-})
-
-$(".fruit").hover(
-  function () {
-    
-    $(this).removeClass(".fruit");
+// 滑鼠碰到水果就變切片
+$('.fruitRegion').on('mousemove', '.fruit', function () {
+  console.log($(this))
+  console.log($(this).find('img').attr('id'))
+  if ($(this).find('img').attr('id') === 'melon') {
+    $(this).find('img').attr('src', '/images/watermelon_slice.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
+  } else if ($(this).find('img').attr('id') === 'coconut') {
+    $(this).find('img').attr('src', '/images/coconut_half.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
+  } else if ($(this).find('img').attr('id') === 'banana') {
+    $(this).find('img').attr('src', '/images/banana_slice.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
+  } else if ($(this).find('img').attr('id') === 'apple') {
+    $(this).find('img').attr('src', '/images/apple_slice.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
+  } else if ($(this).find('img').attr('id') === 'orange') {
+    $(this).find('img').attr('src', '/images/orange_4.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
+  } else if ($(this).find('img').attr('id') === 'lemon') {
+    $(this).find('img').attr('src', '/images/lemon_half2.png')
+    setTimeout(function () {
+      $(this).remove()
+    }, 400)
   }
-);
+})
