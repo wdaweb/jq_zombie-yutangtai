@@ -64,12 +64,12 @@ $('#startBtn').click(function () {
 })
 
 // 滑鼠在該區域裡的相對位置
-$('.fruitRegion').mousemove(function (e) {
-  var elm = $(this)
-  var mouseX = e.pageX - elm.offset().left
-  var mouseY = e.pageY - elm.offset().top
-  console.log('滑鼠位置:' + mouseX + ',' + mouseY)
-})
+// $('.fruitRegion').mousemove(function (e) {
+//   var elm = $(this)
+//   var mouseX = e.pageX - elm.offset().left
+//   var mouseY = e.pageY - elm.offset().top
+//   console.log('滑鼠位置:' + mouseX + ',' + mouseY)
+// })
 
 //隨機數字
 function randomNum(min, max) {
@@ -101,9 +101,6 @@ function addFruit() {
       .eq($('.fruitRegion span').length - 1)
       .css({ left: `${posX}px` })
     fruitFall(fruitIndex)
-
-    fruitPosition()
-
     if (countdown === 0) {
       clearInterval(fruitFallFrequency)
     }
@@ -117,30 +114,16 @@ function fruitFall(fruitIndex) {
     .animate({ top: `${regionHeight + 110}px` }, (fruitIndex + 1) * 1000, 'linear')
 }
 
-// 抓水果的座標
-let melonPos
-let coconutPos
-let applePos
-let bananaPos
-let orangePos
-let lemonPos
-function fruitPosition() {
-  melonPos = $('#melon').offset()
-  console.log(melonPos)
+// 滑鼠碰到水果水果就消失
 
-  coconutPos = $('#coconut').offset()
-  console.log('椰子:' + coconutPos)
+$('.fruit').mousemove(function(){
+  console.log('hi')
+  $(this).removeClass(this)
+})
 
-  coconutPos = $('#applePos').offset()
-  console.log('蘋果:' + applePos)
-
-  coconutPos = $('#bananaPos').offset()
-  console.log('香蕉:' + bananaPos)
-
-  coconutPos = $('#orangePos').offset()
-  console.log('橘子:' + orangePos)
-
-  coconutPos = $('#lemonPos').offset()
-  console.log('檸檬:' + lemonPos)
-  return melonPos, coconutPos, applePos, bananaPos, orangePos, lemonPos
-}
+$(".fruit").hover(
+  function () {
+    
+    $(this).removeClass(".fruit");
+  }
+);
