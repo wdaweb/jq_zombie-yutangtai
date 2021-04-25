@@ -170,3 +170,4 @@ $('.fruitRegion').on('mouseover', '.fruit', function () {
 })
 
 //物體掉下來會消失：https://stackoverflow.com/questions/43441580/jquery-game-element-disappear-when-in-contact-with-another-element-issue
+//滑鼠移開後物體會消失：https://stackoverflow.com/questions/25831174/the-on-mouseover-only-works-once-jquery/25832428
