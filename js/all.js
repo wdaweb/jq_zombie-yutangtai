@@ -169,3 +169,4 @@ $('.fruitRegion').on('mouseover', '.fruit', function () {
   $('.text-score').text(score)
 })
 
+//物體掉下來會消失：https://stackoverflow.com/questions/43441580/jquery-game-element-disappear-when-in-contact-with-another-element-issue
