@@ -18,7 +18,7 @@
 1.Sweetalert 顯示分數(和最高分數)，按下確定後回到開始畫面
 */
 
-const melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 105px; width: auto;" id="melon">`
+const melon = `<img src="./images/watermelon_all.png" alt="西瓜" style="height: 100px; width: auto;" id="melon">`
 const coconut = `<img src="./images/coconut_all.png" alt="椰子" style="height: 75px; width: auto;" id="coconut">`
 const apple = `<img src="./images/apple_all2.png" alt="蘋果" style="height: 80px; width: auto;" id="apple">`
 const banana = `<img src="./images/banana_all.png" alt="香蕉" style="height: 100px; width: auto;" id="banana">`
@@ -47,20 +47,17 @@ console.log('左下:' + ltX + ',' + lbY)
 $('#startBtn').click(function () {
   $('#startPage').css('display', 'none')
 
-  //進入畫面 0.5 秒後開始倒數計時
-  setTimeout(function () {
-    let timer = setInterval(function () {
-      countdown--
-      randomData()
-      addFruit()
+  let timer = setInterval(function () {
+    countdown--
+    randomData()
+    addFruit()
 
-      $('.text-countdown').text(countdown)
-      if (countdown === 0) {
-        alert('時間到')
-        clearInterval(timer)
-      }
-    }, 1000)
-  }, 300)
+    $('.text-countdown').text(countdown)
+    if (countdown === 0) {
+      alert('時間到')
+      clearInterval(timer)
+    }
+  }, 1000)
 })
 
 // 滑鼠在該區域裡的相對位置
@@ -113,42 +110,53 @@ function addFruit() {
 function fruitFall(fruitIndex) {
   $('.fruitRegion span')
     .eq($('.fruitRegion span').length - 1)
-    .animate({ top: `${regionHeight + 110}px` }, (fruitIndex + 1) * 1000, 'linear')
+    .animate({ top: `${regionHeight + 100}px` }, (fruitIndex + 1) * 1000, 'linear')
 }
 
 // 滑鼠碰到水果就變切片
-$('.fruitRegion').on('mousemove', '.fruit', function () {
-  console.log($(this))
-  console.log($(this).find('img').attr('id'))
+let score = 0
+$('.fruitRegion').on('mouseover', '.fruit', function () {
   if ($(this).find('img').attr('id') === 'melon') {
+    score += 5; 
     $(this).find('img').attr('src', '/images/watermelon_slice.png')
+
     setTimeout(function () {
-      $(this).remove()
-    }, 400)
+      $(this).hide()
+    }, 10)
   } else if ($(this).find('img').attr('id') === 'coconut') {
+    score += 4
     $(this).find('img').attr('src', '/images/coconut_half.png')
-    setTimeout(function () {
-      $(this).remove()
-    }, 400)
+    setTimeout(function () {      
+      $(this).hide()
+    }, 10)
   } else if ($(this).find('img').attr('id') === 'banana') {
+    score += 3
     $(this).find('img').attr('src', '/images/banana_slice.png')
     setTimeout(function () {
-      $(this).remove()
-    }, 400)
+      $(this).hide()
+    }, 10)
   } else if ($(this).find('img').attr('id') === 'apple') {
+    score += 2
     $(this).find('img').attr('src', '/images/apple_slice.png')
     setTimeout(function () {
-      $(this).remove()
-    }, 400)
+      $(this).hide()
+    }, 10)
   } else if ($(this).find('img').attr('id') === 'orange') {
+    score += 1
     $(this).find('img').attr('src', '/images/orange_4.png')
     setTimeout(function () {
-      $(this).remove()
-    }, 400)
+      $(this).hide()
+    }, 10)
   } else if ($(this).find('img').attr('id') === 'lemon') {
+    score += 1
     $(this).find('img').attr('src', '/images/lemon_half2.png')
+    // $(this).onmouseover = null;
+    
     setTimeout(function () {
-      $(this).remove()
-    }, 400)
+      $(this).hide()
+    }, 10)
   }
+  console.log(score)
+  $('.text-score').text(score)
 })
+
