@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/all.min.css">
     <title>切水果</title>
@@ -14,9 +16,13 @@
     <!-- fullPage 起始頁面 -->
     <div id="fullPage">
         <div id="startPage">
-            <h1>Fruit Ninja</h1>
-            <input type="button" value="START" id="startBtn">
-            <label for="btn"><i class="fas fa-play"></i></label>
+            <div class="title">
+                <h1>Fruit Ninja</h1>
+            </div>
+            <div class="button">
+                <input type="button" value="" id="startBtn">
+                <label for="btn"><i class="fas fa-play"></i></label>
+            </div>            
         </div>
 
         <!-- 遊戲畫面 -->
@@ -26,13 +32,13 @@
                 <div id="header">
                     <!-- 分數 -->
                     <div class="score">
-                        <p style="font-size: 20px;"><i class="fas fa-coins"></i>&emsp;Score</p>
+                        <p style="font-size: 20px; font-family: 'Dokdo', cursive;"><i class="fas fa-coins"></i>&emsp;Score</p>
                         <p><span class="text-score text">0</span></p>
 
                     </div>
                     <!-- 倒數 -->
                     <div class="countdown">
-                        <p style="font-size: 20px;"><i class="fas fa-hourglass-half"></i>&emsp;Time Left</p>
+                        <p style="font-size: 20px; font-family: 'Dokdo', cursive;"><i class="fas fa-hourglass-half"></i>&emsp;Time Left</p>
                         <p><span class="text-countdown text">10</span></p>
                     </div>
                 </div>
