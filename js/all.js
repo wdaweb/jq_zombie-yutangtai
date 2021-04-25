@@ -35,7 +35,7 @@ let ltX = $('.fruitRegion').offset().left
 let ltY = $('.fruitRegion').offset().top
 let rtX = ltX + regionWidth
 let lbY = $('#footer').offset().top
-let countdown = 60 //暫定
+let countdown = 10
 
 console.log('寬:' + regionWidth + ',' + '高:' + regionHeight)
 console.log('左上:' + ltX + ',' + ltY)
@@ -46,16 +46,25 @@ console.log('左下:' + ltX + ',' + lbY)
 // 按下 START 會進入遊戲畫面
 $('#startBtn').click(function () {
   $('#startPage').css('display', 'none')
+  $('.fruitRegion').empty()  //為何沒效果?
+  $('.text-score').text('0')
 
   let timer = setInterval(function () {
     countdown--
     randomData()
     addFruit()
-
+    
     $('.text-countdown').text(countdown)
     if (countdown === 0) {
-      alert('時間到')
       clearInterval(timer)
+      $('#startPage').css('display', '')
+      Swal.fire({
+        icon:'info',
+        title:'Game Over!!!',
+        text:`Your score is ${score}`
+      })
+      countdown = 10
+      score = 0
     }
   }, 1000)
 })
@@ -80,7 +89,7 @@ let velocity //隨機速度
 let posX //隨機 x 座標
 
 function randomData() {
-  fruitNum = randomNum(1, 3)
+  fruitNum = randomNum(1, 2)
   fruitIndex = randomNum(0, 6)
   posX = randomNum(ltX + 105, rtX) //加上最大顆的水果寬度，不然會超出邊界
   posY = randomNum(lbY, ltY)
@@ -110,7 +119,7 @@ function addFruit() {
 function fruitFall(fruitIndex) {
   $('.fruitRegion span')
     .eq($('.fruitRegion span').length - 1)
-    .animate({ top: `${regionHeight + 100}px` }, (fruitIndex + 1) * 1000, 'linear')
+    .animate({ top: `${regionHeight + 105}px` }, (fruitIndex + 1) * 1000, 'linear')
 }
 
 // 滑鼠碰到水果就變切片
