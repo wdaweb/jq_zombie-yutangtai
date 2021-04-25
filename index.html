@@ -16,12 +16,18 @@
     <!-- fullPage 起始頁面 -->
     <div id="fullPage">
         <div id="startPage">
-            <div class="title">
-                <h1>Fruit Ninja</h1>
-            </div>
-            <div class="button">
-                <input type="button" value="" id="startBtn">
-                <label for="btn"><i class="fas fa-play"></i></label>
+            <div id="blurStyle"></div>
+            <div class="title"></div>
+            <div class="titleContent">
+                <div class="h1Title">
+                    <h1>Fruit Ninja</h1>
+                </div>
+                <div class="button">
+                    <input type="button" value="" id="startBtn">
+                    <label for="btn">
+                        <i class="fas fa-play playBtn"></i>
+                    </label>
+                </div>
             </div>            
         </div>
 
@@ -32,14 +38,14 @@
                 <div id="header">
                     <!-- 分數 -->
                     <div class="score">
-                        <p style="font-size: 20px; font-family: 'Dokdo', cursive;"><i class="fas fa-coins"></i>&emsp;Score</p>
+                        <p style="font-size: 25px; font-family: 'Dokdo', cursive;">Score</p>
                         <p><span class="text-score text">0</span></p>
 
                     </div>
                     <!-- 倒數 -->
                     <div class="countdown">
-                        <p style="font-size: 20px; font-family: 'Dokdo', cursive;"><i class="fas fa-hourglass-half"></i>&emsp;Time Left</p>
-                        <p><span class="text-countdown text">10</span></p>
+                        <p style="font-size: 25px; font-family: 'Dokdo', cursive;">Time Left</p>
+                        <p><span class="text-countdown text">60</span></p>
                     </div>
                 </div>
 
@@ -61,6 +67,7 @@
     </div>
 
     <script src="./jquery/jquery-3.6.0.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="./js/anime.min.js"></script>
     <script src="./js/all.js"></script>
 </body>
