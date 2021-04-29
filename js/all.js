@@ -57,7 +57,7 @@ $('#startBtn').click(function () {
     if (countdown === 0) {
       clearInterval(timer)
       clearInterval(fruitFallFrequency)
-      $('#startPage').css('display', '')
+      $('#startPage').css('display', 'block')
       Swal.fire({
         icon: 'info',
         title: 'Game Over!!!',
