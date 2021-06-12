@@ -120,32 +120,32 @@ $('.fruitRegion').on('mouseover', '.fruit', function () {
   switch ($(this).find('img').attr('id')) {
     case 'melon':
       score += 5
-      $(this).find('img').attr('src', '/images/watermelon_slice.png')
+      $(this).find('img').attr('src', './images/watermelon_slice.png')
       $(this).addClass('cut')
       break
     case 'coconut':
       score += 4
-      $(this).find('img').attr('src', '/images/coconut_half.png')
+      $(this).find('img').attr('src', './images/coconut_half.png')
       $(this).addClass('cut')
       break
     case 'banana':
       score += 3
-      $(this).find('img').attr('src', '/images/banana_slice.png')
+      $(this).find('img').attr('src', './images/banana_slice.png')
       $(this).addClass('cut')
       break
     case 'apple':
       score += 2
-      $(this).find('img').attr('src', '/images/apple_slice.png')
+      $(this).find('img').attr('src', './images/apple_slice.png')
       $(this).addClass('cut')
       break
     case 'orange':
       score += 1
-      $(this).find('img').attr('src', '/images/orange_4.png')
+      $(this).find('img').attr('src', './images/orange_4.png')
       $(this).addClass('cut')
       break
     case 'lemon':
       score += 1
-      $(this).find('img').attr('src', '/images/lemon_half2.png')
+      $(this).find('img').attr('src', './images/lemon_half2.png')
       $(this).addClass('cut')
       break
     default:
